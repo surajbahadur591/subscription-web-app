@@ -4,6 +4,6 @@ publish = "src"
 functions = "functions"
 
 [[redirects]]
-from "/*"
-to = "/index.js"
+from ""
+to = "index.js"
 status = 200
