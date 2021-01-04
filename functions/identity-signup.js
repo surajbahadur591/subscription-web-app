@@ -27,10 +27,8 @@ exports.handler = async (event) => {
                 stripeID,
             }
         })
-    }).then(res => res.json())
-    // .catch( (err) = console.log(err, null, 2));
+    });
 
-    console.log({response});
 
     return {
         // every serverless function has to return status code and body
