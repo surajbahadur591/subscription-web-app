@@ -15,9 +15,12 @@ exports.handler = async (event) => {
         },
         body : JSON.stringify({
             query: `
-            mutation($netlifyID: ID! stripeID: ID!) {
-                createUser(data: {netlifyID: $netlifyID, stripeID: $stripeID})
-            }
+            mutation($netlifyID : ID! $stripeID: ID!) {
+                createUser(data: {netlifyID: $netlifyID, stripeID :$stripeID}){
+                  netlifyID
+                  stripeID
+                }
+              }
             `,
             variables : {
                 netlifyID,
