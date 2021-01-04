@@ -1,5 +1,5 @@
 [build]
 command = "npm i --prefix=functions npm run build"
-publish = "/build"
+publish = "src"
 functions = "functions"
 base = ""
