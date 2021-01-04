@@ -1,7 +1,5 @@
 const fetch = require('node-fetch');
 
-
-
 exports.handler = async (event) => {
 
 
@@ -19,7 +17,7 @@ exports.handler = async (event) => {
         },
         body : JSON.stringify({
             query: `
-            mutation($netlifyID: ID!, stripeID: ID!) {
+            mutation($netlifyID: ID! stripeID: ID!) {
                 createUser(data: {netlifyID: $netlifyID, stripeID: $stripeID})
             }
             `,
@@ -29,10 +27,9 @@ exports.handler = async (event) => {
             }
         })
     }).then(res => res.json())
-    .catch( (err) = console.log(err));
+    .catch( (err) = console.log(err, null, 2));
 
-    console.log({response})
-    ;
+    console.log({response});
 
     return {
         // every serverless function has to return status code and body
