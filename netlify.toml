@@ -1,4 +1,6 @@
 [build]
 command = "npm i --prefix=functions"
-publish = "build"
+publish = "/build"
 functions = "functions"
+
+
