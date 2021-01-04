@@ -25,7 +25,7 @@ exports.handler = async (event) => {
             }
         })
     }).then(res => res.json())
-    .catch( (err) = console.log(err, null, 2));
+    // .catch( (err) = console.log(err, null, 2));
 
     console.log({response});
 
