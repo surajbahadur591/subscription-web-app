@@ -1,4 +1,5 @@
 [build]
 command = "npm i --prefix=functions"
+publish ="src"
 functions = "functions"
 
