@@ -2,3 +2,8 @@
 command = "npm i --prefix=functions"
 publish = "src"
 functions = "functions"
+
+[[redirects]]
+from "/*"
+to = "/index.js"
+status = 200
