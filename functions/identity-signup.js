@@ -1,4 +1,6 @@
 const fetch = require('node-fetch');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
 
 exports.handler = async (event) => {
     const {user} = JSON.parse(event.body);
@@ -6,7 +8,17 @@ exports.handler = async (event) => {
 
     const netlifyID = user.id;
 
-    const stripeID = 1;
+
+    const customer = await stripe.customers.create({
+        email : user.email
+    })
+
+    await stripe.subscriptions.create({
+        customer : customer.id,
+        items: [{plan : 'price_1I6ERaFM9aVrQ6FMhrw8oqyk'}]
+    })
+    const stripeID = customer.id;
+    
 
     const response = await fetch("https://graphql.fauna.com/graphql", {
         method : 'POST',
