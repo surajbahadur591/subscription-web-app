@@ -15,10 +15,10 @@ exports.handler = async (event) => {
 
     await stripe.subscriptions.create({
         customer : customer.id,
-        items: [{plan : 'price_1I6ERaFM9aVrQ6FMhrw8oqyk'}]
+        items: [{plan : 'price_1I6F3fAgiEt19DIiddDVTsNT'}]
     })
     const stripeID = customer.id;
-    
+
 
     const response = await fetch("https://graphql.fauna.com/graphql", {
         method : 'POST',
