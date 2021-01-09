@@ -1,14 +1,12 @@
-
+// import fetch from 'node-fetch'
 import './App.css';
 // importing netlify identity
 import netlifyIdentity from 'netlify-identity-widget'
 
-
-
 // initial setup of netlify identity
 netlifyIdentity.init();
 
- async function App() {
+ function App() {
 
   // const url = 'https://peaceful-kepler-3d0423.netlify.app';
 
@@ -28,14 +26,19 @@ netlifyIdentity.init();
 
   }
 
-  const sub =  await fetch('./netlify/functions/manage-subscription', {
-    method : 'POST',
+  
+  fetch('https://subscription-web-app.netlify.app/functions/manage-subscription', {
+    method: "GET",
+    mode: "cors",
     headers: {
-      Authorization: `Bearer ${access_token}`
+      'Access-Control-Allow-Origin' : "*",
+      'Authorization': `Bearer ${access_token}`
     },
   })
 
-  console.log(sub);
+  
+
+  // console.log(sub);
 
   return (
     <div className="App">
