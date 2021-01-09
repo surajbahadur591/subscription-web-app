@@ -8,7 +8,7 @@ import netlifyIdentity from 'netlify-identity-widget'
 // initial setup of netlify identity
 netlifyIdentity.init();
 
-function App() {
+ async function App() {
 
   // const url = 'https://peaceful-kepler-3d0423.netlify.app';
 
@@ -28,14 +28,14 @@ function App() {
 
   }
 
-  fetch('./netlify/functions/manage-subscription', {
+  const sub =  await fetch('./netlify/functions/manage-subscription', {
     method : 'POST',
     headers: {
       Authorization: `Bearer ${access_token}`
     },
-  }).then(res => res.json())
-  .then(res => console.log(res))
-  .catch(err => console.log(err))
+  })
+
+  console.log(sub);
 
   return (
     <div className="App">
