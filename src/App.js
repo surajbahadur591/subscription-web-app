@@ -27,11 +27,11 @@ netlifyIdentity.init();
   }
 
   
-  fetch('https://subscription-web-app.netlify.app/functions/manage-subscription', {
+  fetch('.netlify/functions/manage-subscription', {
     method: "GET",
-    mode: "cors",
+    mode: "no-cors",
     headers: {
-      'Access-Control-Allow-Origin' : "*",
+      // 'Access-Control-Allow-Origin' : "*",
       'Authorization': `Bearer ${access_token}`
     },
   })

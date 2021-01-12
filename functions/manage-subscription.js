@@ -8,7 +8,7 @@ exports.handler  = async (event, context) => {
     console.log(user);
 
     const query = `
-    query(netlifyID : ID!) {
+    query($netlifyID : ID!) {
         getUserByNetlifyID(netlifyID:"8c9b4a04-baba-47bd-a111-4ca18a71483c" ){
           stripeID
           netlifyID
